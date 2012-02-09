@@ -92,3 +92,10 @@ p(. I couldn't get the latest versions of plink and pageant (as of 2008-Nov-15) 
 h2. On Windows, you can't type "y" to confirm the "Store [server's host] key in cache?" prompt
 
 This happens because git eats up the ssh client's STDIN output. To work around that, launch @ssh github.com@ or @plink.exe -agent github.com@ standalone and press "y" at the prompt.
+
+h2. ssh does not know about @~/.ssh/id_rsa@ and @~/.ssh.id_rsa.pub@
+
+By default ssh should be aware about the identity @~/.ssh/id_rsa@. Sometimes it is not. In this cases you can't authenticate on github.
+Do this to let ssh know about @id_rsa@ identity:
+
+<pre class="terminal">ssh-add ~/.ssh/id_rsa</pre>
